@@ -15,12 +15,12 @@ DATA_DIR = "./data2.txt"
 BATCH_SIZE = 100
 HIDDEN_DIM = 300 #500
 #Parametro para longitud de secuencia a analizar
-SEQ_LENGTH = 60
+SEQ_LENGTH = 100
 #Parametro para cargar un pesos previamente entrenados (checkpoint)
 WEIGHTS = '' 
 
 #Parametro para indicar cuantos caracteres generar en cada prueba
-GENERATE_LENGTH = 400 
+GENERATE_LENGTH = 250 
 #Parametros para la red neuronal
 LAYER_NUM = 2 
 NB_EPOCH = 20
@@ -86,7 +86,9 @@ def generate_text(model, length, vocab_size, ix_to_char):
         print(ix_to_char[ix[-1]], end="",file=salida)
         ix = np.argmax(model.predict(X[:, :i+1, :])[0], 1)
         y_char.append(ix_to_char[ix[-1]])
-        print("\n\n\n",file=salida)
+    
+    print("\n\n\n",file=salida)
+
     return ('').join(y_char)
 
 

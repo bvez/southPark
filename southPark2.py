@@ -86,11 +86,12 @@ def generate_text(model, length, vocab_size, ix_to_char):
         print(ix_to_char[ix[-1]], end="",file=salida)
         ix = np.argmax(model.predict(X[:, :i+1, :])[0], 1)
         y_char.append(ix_to_char[ix[-1]])
-	print("\n\n\n",file=salida)
+        print("\n\n\n",file=salida)
     return ('').join(y_char)
-	
+
+
 X, y, VOCAB_SIZE, ix_to_char = load_data(DATA_DIR, SEQ_LENGTH)
-	
+
 #No modificar el pickle al reiniciar el cuaderno de trabajo para probar checkpoints previos
 with open('ix_to_char.pickle', 'wb') as handle:
     pickle.dump(ix_to_char, handle, protocol=pickle.HIGHEST_PROTOCOL)

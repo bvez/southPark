@@ -71,9 +71,9 @@ def load_data(data_dir, seq_length):
             y[i] = target_sequence
             
     return X, y, VOCAB_SIZE, ix_to_char
-	
+
 salida = open("pruebas.txt",'w')
-	
+
 # method for generating text
 def generate_text(model, length, vocab_size, ix_to_char):
     # starting with random character
@@ -94,9 +94,9 @@ X, y, VOCAB_SIZE, ix_to_char = load_data(DATA_DIR, SEQ_LENGTH)
 #No modificar el pickle al reiniciar el cuaderno de trabajo para probar checkpoints previos
 with open('ix_to_char.pickle', 'wb') as handle:
     pickle.dump(ix_to_char, handle, protocol=pickle.HIGHEST_PROTOCOL)
-	
-	
-	
+
+
+
 # Creating and compiling the Network
 model = Sequential()
 
@@ -125,10 +125,10 @@ if not WEIGHTS == '':
 else:
     #Si se va a empezar de 0:
     nb_epoch = 0
-	
-	
-	
-	
+
+
+
+    
 # Training if there is no trained weights specified
 
 #Esta es la iteración importante
